@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8 without BOM">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C#</title>
+</head>
+<body>
+<style>
+.accordion, .submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.accordion {
+  width: 300px;
+  border: 1px solid #ccc;
+}
+
+.header {
+  background-color: #f4f4f4;
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.header:hover {
+  background-color: #e0e0e0;
+}
+
+.submenu {
+  display: none; /* Скрываем подменю */
+  padding-left: 20px;
+  background-color: #fafafa;
+}
+
+.submenu a {
+  display: block;
+  padding: 8px;
+  text-decoration: none;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+
+/* Класс для активного элемента */
+.open > .submenu {
+  display: block;
+}</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const headers = document.querySelectorAll('.accordion .header');
+
+  headers.forEach(header => {
+    header.addEventListener('click', function() {
+      const parentLi = this.parentElement;
+      parentLi.classList.toggle('open');
+    });
+  });
+}); 
+</script>
+<div class="accordion">
+  <div>
+    <div class="header">1. Введение в C#</div>
+    <div class="submenu">
+      <div>
+        <div class="header">Язык C# и платформа .NET</div>
+        <div class="submenu">
+          <div><p>Преимущества платформы:
+				Поддержка нескольких языков(С#, VB.NET, C++, F#)
+				Кроссплатформенность
+				Мощная библиотека классов
+				Разнообразие технологий
+				Производительность
+
+				Управляемый и неуправляемый код:
+				Управляемый код(managed code): приложение управляется средой, которая загружает приложение и при необходимости очищает память
+				Неуправляемый код: приложение компилируется в машинный код и не управляется никакой средой
+
+				JIT- и AOT-компиляция:
+				JIT-компиляция (Just-In-Time): 
+				Компиляция происходит только части, к которой идет непосредственное обращение
+				Скомпилированная часть приложения сохраняется до завершения работы программы
+				AOT-компиляция (AOT = Ahead of Time - компиляция перед выполнением):
+				Приложение компилируется в машинный код определенной платформы
+				Программа становится непереносимой</p>
+		  
+		  
+		  
+		  
+		  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="header">Уровень 1 - Пункт 2</div>
+    <div class="submenu">
+      <div><p>Подпункт 2.1</p></div>
+    </div>
+  </div>
+</div>
+</body>
