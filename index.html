@@ -1,85 +1,379 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿<!doctype html>
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>C#</title>
-  <style>
-  /* Стили для аккордеона */
-  details {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: #f9f9f9;
-  }
-  summary {
-    font-weight: bold;
-    cursor: pointer;
-  }
-  /* Стили для подпунктов (вложенного аккордеона) */
-  details details {
-    margin-top: 10px;
-    margin-left: 20px;
-    background-color: #fff;
-    border: 1px solid #eee;
-  }
-</style>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>C#</title>
+	<style>
+		:root {
+			--w: 50vw;
+		}
+		/* меню = 50% экрана всегда */
+		body {
+			margin: 0;
+			font: 16px/1.4 system-ui, sans-serif;
+		}
+
+		header {
+			position: sticky;
+			top: 0;
+			padding: 10px;
+			border-bottom: 1px solid #ddd;
+			background: #fff;
+			z-index: 1;
+		}
+
+		button {
+			padding: 8px 10px;
+			cursor: pointer;
+		}
+
+		/* Меню фиксировано слева */
+		nav {
+			position: fixed;
+			top: 5%;
+			left: 0;
+			height: 100vh;
+			width: var(--w);
+			border-right: 1px solid #ddd;
+			background: #f7f7f7;
+			transform: translateX(-100%);
+			transition: transform .2s ease;
+			overflow: auto;
+			padding: 10px;
+			box-sizing: border-box;
+		}
+
+		main {
+			padding: 16px;
+			transition: margin-left .2s ease;
+		}
+
+		/* состояние открыто */
+		body.open nav {
+			transform: translateX(0);
+		}
+
+		body.open main {
+			margin-left: var(--w);
+		}
+
+		/* Аккордеон (очень просто) */
+		.details {
+			border: 1px solid #ddd;
+			margin: 8px 0;
+			background: #fff;
+		}
+
+		.summary {
+			padding: 10px;
+			cursor: pointer;
+			user-select: none;
+			font-weight: 600;
+		}
+
+		.sub {
+			padding: 0 10px 10px;
+		}
+
+        a {
+            display: block;
+            padding: 6px 0;
+            color: #111;
+        }
+
+            a:hover {
+                text-decoration: underline;
+                font-weight: 500;
+            }
+	</style>
+	<style>
+		/* Стили для аккордеона */
+		details {
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			margin-bottom: 10px;
+			padding: 10px;
+			background-color: #f9f9f9;
+		}
+
+		summary {
+			font-weight: bold;
+			cursor: pointer;
+		}
+		/* Стили для подпунктов (вложенного аккордеона) */
+		details details {
+			margin-top: 10px;
+			margin-left: 20px;
+			background-color: #fff;
+			border: 1px solid #eee;
+		}
+	</style>
+    <style>
+        .code {
+            font-family: monospace;
+            display: inline-block;
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+            .code div {
+                background-color: #333;
+                color: #FFF;
+                border-radius: 5px;
+                margin-top: 0px;
+                padding-bottom: 1px;
+            }
+                .code div div {
+                    background-color: #555;
+                    padding-bottom: 0px;
+                }
+            .code p {
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+	</style>
 </head>
+
 <body>
+	<header>
+		<button id="toggle" aria-controls="menu" aria-expanded="false">☰ Меню</button>
+	</header>
 
-  <h2>C#</h2>
 
-  <!-- Первый пункт -->
-  <details>
-    <summary>1. Введение в C#</summary>
-    <!-- Подпункт -->
-    <details>
-		<summary>Язык C# и платформа .NET</summary>
-		<div>	
-			<!-- Преимущества платформы -->
-			<h4>Преимущества платформы</h4>
-				<ul>
-					<li>Поддержка нескольких языков(С#, VB.NET, C++, F#)</li>
-					<li>Кроссплатформенность</li>
-					<li>Мощная библиотека классов</li>
-					<li>Разнообразие технологий</li>
-					<li>Высокая производительность</li>
-					<li>Автоматическое управление памятью</li>
-					<li>Безопасность кода</li>
-				</ul>
-			<!-- Управляемый и неуправляемый код -->
-			<h3>Управляемый и неуправляемый код</h3>
-			<h4>Управляемый код:</h4>
-			<ul><li>Управляемый код(managed code): приложение управляется средой(Common Language Runtime(CLR) для C#), загружающей приложение и управляющей памятью</li></ul>
-			<h4>Неуправляемый код:</h4>
-			<ul><li>Неуправляемый код(unmanaged code): приложение компилируется в машинный код и не управляется никакой средой, памятью управляет разработчик</li></ul>
-			<!-- JIT и AOT компиляция -->
-			<h3>JIT- и AOT-компиляция</h3>
-			<h4>JIT-компиляция (Just-In-Time):</h4>
-			<ul>
-				<li>Компиляция происходит только части, к которой идет непосредственное обращение</li>
-				<li>Скомпилированная часть приложения сохраняется до завершения работы программы</li>
-			</ul>
-			<h4>AOT-компиляция (Ahead-of-Time: компиляция перед выполнением):</h4>
-			<ul>
-				<li>Приложение компилируется в машинный код определенной платформы</li>
-				<li>Программа становится непереносимой</li>
-			</ul>
-		</div>
-    </details>
-    
-    <details>
-      <summary>Подпункт 1.2</summary>
-      <p>Вложенная информация 1.2</p>
-    </details>
-  </details>
 
-  <!-- Второй пункт -->
-  <details>
-    <summary>Раздел 2</summary>
-    <p>Содержимое раздела 2</p>
-  </details>
+	<nav id="menu">
+		<!-- Родитель — ссылка на страницу + рядом раскрывашка через details -->
+		<details class="details">
+			<summary class="summary">C#</summary>
+			<div class="sub">
+				<a href="page1.html">С#</a>
+				<a href="page1.html#sub1">ASP.NET Core</a>
+				<a href="page1.html#sub2">Подраздел 1.2 (с #sub2)</a>
+			</div>
+		</details>
 
+		<details class="details">
+			<summary class="summary">Раздел 2 (раскрыть)</summary>
+			<div class="sub">
+				<a href="page2.html">Раздел 2 — страница</a>
+				<a href="page2.html#intro">Подраздел 2.1 (с #intro)</a>
+				<a href="page2.html#faq">Подраздел 2.2 (с #faq)</a>
+			</div>
+		</details>
+
+		<a href="about.html" class="details summary">Раздел 3 (без вложений)</a>
+
+	</nav>
+	<!-- Контент страницы -->
+	<main>
+		<h2>C#</h2>
+
+		<!-- Первый пункт -->
+		<details>
+			<summary>1. Введение в C#</summary>
+			<!-- Подпункт -->
+			<details>
+				<summary>Язык C# и платформа .NET</summary>
+				<div>
+					<!-- Преимущества платформы -->
+					<h4>Преимущества платформы</h4>
+					<ul>
+						<li>Поддержка нескольких языков(С#, VB.NET, C++, F#)</li>
+						<li>Кроссплатформенность</li>
+						<li>Мощная библиотека классов</li>
+						<li>Разнообразие технологий</li>
+						<li>Высокая производительность</li>
+						<li>Автоматическое управление памятью</li>
+						<li>Безопасность кода</li>
+					</ul>
+					<!-- Управляемый и неуправляемый код -->
+					<h3>Управляемый и неуправляемый код</h3>
+					<h4>Управляемый код:</h4>
+					<ul><li><strong>Управляемый код(managed code): </strong>приложение управляется средой(Common Language Runtime(CLR) для C#), загружающей приложение и управляющей памятью</li></ul>
+					<h4>Неуправляемый код:</h4>
+					<ul><li><strong>Неуправляемый код(unmanaged code): </strong>приложение компилируется в машинный код и не управляется никакой средой, памятью управляет разработчик</li></ul>
+					<!-- JIT и AOT компиляция -->
+					<h3>JIT- и AOT-компиляция</h3>
+					<h4>JIT-компиляция (Just-In-Time: точно в срок):</h4>
+					<ul>
+						<li>Компиляция происходит только части, к которой идет непосредственное обращение</li>
+						<li>Скомпилированная часть приложения сохраняется до завершения работы программы</li>
+					</ul>
+					<h4>AOT-компиляция (Ahead-of-Time: заранее):</h4>
+					<ul>
+						<li>Перед выполнением приложение компилируется в машинный код определенной платформы</li>
+						<li>Программа становится непереносимой</li>
+					</ul>
+				</div>
+			</details>
+
+			<details>
+				<summary>Работа с .NET CLI</summary>
+				<div>
+					<!-- Основные команды .NET CLI -->
+					<h3>Основные команды .NET CLI:</h3>
+					<ul>
+						<li>Создание нового проекта/файла на основе шаблона:</li>
+						<li class="code">
+							<div>
+								<div><p>Console</p></div>
+								<p>C:\Users\User> dotnet new шаблон Название</p>
+							</div>
+						</li>
+						<li>Добавление зависимостей к проекту:</li>
+						<li class="code">
+							<div>
+								<div><p>Console</p></div>
+								<p>C:\Users\User> dotnet add package Название/Ссылка/Путь</p>
+							</div>
+						</li>
+						<li>Востановление зависимстей, указанных в проекте:</li>
+						<li class="code">
+							<div>
+								<div><p>Console</p></div>
+								<p>C:\Users\User> dotnet restore Название/Ссылка/Путь</p>
+							</div>
+						</li>
+						<li>Сборка проекта и его зависимостей:</li>
+						<li class="code">
+							<div>
+								<div><p>Console</p></div>
+								<p>C:\Users\User> dotnet build</p>
+							</div>
+						</li>
+						<li>Запуск исходного проекта без явной сборки:</li>
+						<li class="code">
+							<div>
+								<div><p>Console</p></div>
+								<p>C:\Users\User> dotnet run</p>
+							</div>
+						</li>
+						<li>Упаковка приложения без развертывания:</li>
+						<li class="code">
+							<div>
+								<div><p>Console</p></div>
+								<p>C:\Users\User> dotnet publish</p>
+							</div>
+						</li>
+						<li>Очистка входных данных сборки (папки bin и obj):</li>
+						<li class="code">
+							<div>
+								<div><p>Console</p></div>
+								<p>C:\Users\User> dotnet clean</p>
+							</div>
+						</li>
+						<li>Запуск тестов:</li>
+						<li class="code">
+							<div>
+								<div><p>Console</p></div>
+								<p>C:\Users\User> dotnet test</p>
+							</div>
+						</li>
+						<li>Запуск команды(обычно run или test) и перезапуск при изменении файлов:</li>
+						<li class="code">
+							<div>
+								<div><p>Console</p></div>
+								<p>C:\Users\User> dotnet watch команда/проект</p>
+							</div>
+						</li>
+					</ul>
+					<!-- Основные флаги команд -->
+					<h3>Основные флаги команд:</h3>
+					<ul>
+						<li>Определение конфигурации сборки проекта:</li>
+						<li class="code">
+							<div>
+								<div><p>Console</p></div>
+								<p>C:\Users\User> --configuration конфигурация</p>
+								<p>C:\Users\User> -c конфигурация</p>
+							</div>
+						</li>
+						<li>Определение директории для размещения выходных файлов:</li>
+						<li class="code">
+							<div>
+								<div><p>Console</p></div>
+								<p>C:\Users\User> --output ИмяПапки</p>
+								<p>C:\Users\User> -o ИмяПапки</p>
+							</div>
+						</li>
+						<li>Определение целевого фреймворка:</li>
+						<li class="code">
+							<div>
+								<div><p>Console</p></div>
+								<p>C:\Users\User> --framework версия</p>
+								<p>C:\Users\User> -f версия</p>
+							</div>
+						</li>
+						<li>Уровень детализации логов:</li>
+						<li class="code">
+							<div>
+								<div><p>Console</p></div>
+								<p>C:\Users\User> --verbosity уровень</p>
+								<p>C:\Users\User> -v уровень</p>
+							</div>
+						</li>
+						<li>Пропуск этапа восстановления зависимостей при сборке/запуске:</li>
+						<li class="code">
+							<div>
+								<div><p>Console</p></div>
+								<p>C:\Users\User> --no-restore</p>
+							</div>
+						</li>
+					</ul>
+					<!-- Виды конфигурации проекта -->
+					<h3>Виды конфигурации проекта:</h3>
+					<ul>
+						<li><strong>Debug(По умолчанию): </strong>версия для разработки</li>
+						<li><strong>Release: </strong>версия для публикации</li>
+					</ul>
+					<!-- Логи -->
+					<h3>Логи</h3>
+					<p><strong>Логи: </strong>структурированные записи о событиях(действия/ошибки/предупреждения) в работе приложения, используемые для отладки и мониторинга</p>
+					<h4>Уровни детализации логов:</h4>
+					<ul>
+						<li><strong>q/quiet: </strong>только итоговое резюме сборки(успех/провал) и критические ошибки, из-за которых процесс прервался</li>
+						<li><strong>m/minimal: </strong>ошибки, предупреждения, сообщения высокой важности и сводку по проекту</li>
+						<li><strong>n/normal(по умолчанию): </strong>список всех обрабатываемых проектов, основные этапы (targets) и статус их выполнения.</li>
+						<li><strong>d/detailed: </strong>подробности выполнения каждой задачи внутри этапов</li>
+						<li><strong>diag/diagnostic: </strong>абсолютно всё, значения всех переменных MSBuild, полные пути, переменные окружения, детальные замеры времени на каждую задачу</li>
+					</ul>
+				</div>
+			</details>
+		</details>
+
+		<!-- Второй пункт -->
+		<details>
+			<summary>Раздел 2</summary>
+			<details>
+				<summary>Подпункт 1.2</summary>
+				<p>Вложенная информация 1.2</p>
+			</details>
+		</details>
+	</main>
+
+	<script>
+		const btn = document.getElementById('toggle');
+		btn.addEventListener('click', () => {
+			document.body.classList.toggle('open');
+			const open = document.body.classList.contains('open');
+			btn.setAttribute('aria-expanded', open);
+		});
+
+		// По желанию: ESC закрывает
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape') {
+				document.body.classList.remove('open');
+				btn.setAttribute('aria-expanded', 'false');
+			}
+		});
+
+		// Клик по ссылке в меню — закрыть меню (если надо)
+		document.getElementById('menu').addEventListener('click', (e) => {
+			if (e.target.closest('a')) {
+				document.body.classList.remove('open');
+				btn.setAttribute('aria-expanded', 'false');
+			}
+		});
+	</script>
 </body>
 </html>
