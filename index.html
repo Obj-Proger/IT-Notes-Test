@@ -2,16 +2,17 @@
 <html lang="ru">
 <head>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>C#</title>
 	<style>
 		:root {
-			--w: 50vw;
+			--w: 30vw;
 		}
-		/* меню = 50% экрана всегда */
+		/* меню = 70% экрана всегда */
 		body {
 			margin: 0;
 			font: 16px/1.4 system-ui, sans-serif;
+			max-width: 100%;
 		}
 
 		header {
@@ -76,16 +77,16 @@
 			padding: 0 10px 10px;
 		}
 
-        a {
-            display: block;
-            padding: 6px 0;
-            color: #111;
-        }
+		a {
+			display: block;
+			padding: 6px 0;
+			color: #111;
+		}
 
-            a:hover {
-                text-decoration: underline;
-                font-weight: 500;
-            }
+			a:hover {
+				text-decoration: underline;
+				font-weight: 500;
+			}
 	</style>
 	<style>
 		/* Стили для аккордеона */
@@ -109,31 +110,36 @@
 			border: 1px solid #eee;
 		}
 	</style>
-    <style>
-        .code {
-            font-family: monospace;
-            display: inline-block;
-            list-style-type: none;
-            margin-bottom: 20px;
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-            .code div {
-                background-color: #333;
-                color: #FFF;
-                border-radius: 5px;
-                margin-top: 0px;
-                padding-bottom: 1px;
-            }
-                .code div div {
-                    background-color: #555;
-                    padding-bottom: 0px;
-                }
-            .code pre {
-                margin: 5px;
-                margin-left: 10px;
-                margin-right: 10px;
-            } 
+	<style>
+		.code {
+			font-family: monospace;
+			display: inline-block;
+			list-style-type: none;
+			margin-bottom: 20px;
+			overflow-x: auto;
+			white-space: nowrap;
+			max-width: 100%;
+		}
+
+			.code div {
+				background-color: #333;
+				color: #FFF;
+				border-radius: 5px;
+				margin-top: 0px;
+				padding-bottom: 1px;
+				min-width: max-content;
+			}
+
+				.code div div {
+					background-color: #555;
+					padding-bottom: 0px;
+				}
+
+			.code pre {
+				margin: 5px;
+				margin-left: 10px;
+				margin-right: 10px;
+			}
 	</style>
 </head>
 
@@ -501,12 +507,12 @@
 							<div>
 								<div><pre>Code</pre></div>
 								<pre>&lt;Project Sdk="Microsoft.NET.Sdk"&gt;                                                                                </pre>
-								<pre>	&lt;PropertyGroup&gt;                                    // Определяет свойства проекта                              </pre>
-								<pre>		&lt;OutputType&gt;Exe&lt;/OutputType&gt;               // Определяет выходной тип проекта                        </pre>
-								<pre>		&lt;TargetFramework&gt;net10.0&lt;/TargetFramework&gt; // Определяет применяемую для компиляции версию фреймворка</pre>
-								<pre>		&lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;    // Определяет неявные пространства имен(без using в коде) </pre>
-								<pre>	&lt;Nullable&gt;enable&lt;/Nullable&gt;                        // Определяет ссылочные типы, допускающие значение null</pre>
-								<pre>	&lt;/PropertyGroup&gt;                                                                                              </pre>
+								<pre> &lt;PropertyGroup&gt;                                    // Определяет свойства проекта                              </pre>
+								<pre>  &lt;OutputType&gt;Exe&lt;/OutputType&gt;               // Определяет выходной тип проекта                        </pre>
+								<pre>  &lt;TargetFramework&gt;net10.0&lt;/TargetFramework&gt; // Определяет применяемую для компиляции версию фреймворка</pre>
+								<pre>  &lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;    // Определяет неявные пространства имен(без using в коде) </pre>
+								<pre> &lt;Nullable&gt;enable&lt;/Nullable&gt;                        // Определяет ссылочные типы, допускающие значение null</pre>
+								<pre> &lt;/PropertyGroup&gt;                                                                                              </pre>
 								<pre>&lt;/Project&gt;                                                                                                       </pre>
 							</div>
 						</li>
