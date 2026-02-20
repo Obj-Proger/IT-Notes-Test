@@ -129,10 +129,11 @@
                     background-color: #555;
                     padding-bottom: 0px;
                 }
-            .code p {
-                margin-left: 20px;
-                margin-right: 20px;
-            }
+            .code pre {
+                margin: 5px;
+                margin-left: 10px;
+                margin-right: 10px;
+            } 
 	</style>
 </head>
 
@@ -168,19 +169,19 @@
 	</nav>
 	<!-- Контент страницы -->
 	<main>
-		<h2>C#</h2>
+		<h1>C#</h1>
 
-		<!-- Первый пункт -->
+		<!-- Первая глава -->
 		<details>
-			<summary>1. Введение в C#</summary>
-			<!-- Подпункт -->
+			<summary>1 Введение в C#</summary>
+			<!-- Пункт 1 -->
 			<details>
-				<summary>Язык C# и платформа .NET</summary>
+				<summary>1.1 Язык C# и платформа .NET</summary>
 				<div>
 					<!-- Преимущества платформы -->
-					<h4>Преимущества платформы</h4>
+					<h3>Преимущества платформы</h3>
 					<ul>
-						<li>Поддержка нескольких языков(С#, VB.NET, C++, F#)</li>
+						<li>Поддержка нескольких языков (С#, VB.NET, C++, F#)</li>
 						<li>Кроссплатформенность</li>
 						<li>Мощная библиотека классов</li>
 						<li>Разнообразие технологий</li>
@@ -189,28 +190,28 @@
 						<li>Безопасность кода</li>
 					</ul>
 					<!-- Управляемый и неуправляемый код -->
-					<h3>Управляемый и неуправляемый код</h3>
-					<h4>Управляемый код:</h4>
-					<ul><li><strong>Управляемый код(managed code): </strong>приложение управляется средой(Common Language Runtime(CLR) для C#), загружающей приложение и управляющей памятью</li></ul>
-					<h4>Неуправляемый код:</h4>
-					<ul><li><strong>Неуправляемый код(unmanaged code): </strong>приложение компилируется в машинный код и не управляется никакой средой, памятью управляет разработчик</li></ul>
+					<h2>Управляемый и неуправляемый код</h2>
+					<h3>Управляемый код:</h3>
+					<ul><li><strong>Управляемый код (Managed code): </strong>приложение управляется средой(Common Language Runtime(CLR) для C#), загружающей приложение и управляющей памятью</li></ul>
+					<h3>Неуправляемый код:</h3>
+					<ul><li><strong>Неуправляемый код (Unmanaged code): </strong>приложение компилируется в машинный код и не управляется никакой средой, памятью управляет разработчик</li></ul>
 					<!-- JIT и AOT компиляция -->
-					<h3>JIT- и AOT-компиляция</h3>
-					<h4>JIT-компиляция (Just-In-Time: точно в срок):</h4>
+					<h2>JIT- и AOT-компиляция</h2>
+					<h3>JIT-компиляция (Just-In-Time: точно в срок):</h3>
 					<ul>
 						<li>Компиляция происходит только части, к которой идет непосредственное обращение</li>
 						<li>Скомпилированная часть приложения сохраняется до завершения работы программы</li>
 					</ul>
-					<h4>AOT-компиляция (Ahead-of-Time: заранее):</h4>
+					<h3>AOT-компиляция (Ahead-of-Time: заранее):</h3>
 					<ul>
 						<li>Перед выполнением приложение компилируется в машинный код определенной платформы</li>
 						<li>Программа становится непереносимой</li>
 					</ul>
 				</div>
 			</details>
-
+			<!-- Пункт 2 -->
 			<details>
-				<summary>Работа с .NET CLI</summary>
+				<summary>1.2 Работа с .NET CLI</summary>
 				<div>
 					<!-- Основные команды .NET CLI -->
 					<h3>Основные команды .NET CLI:</h3>
@@ -218,64 +219,64 @@
 						<li>Создание нового проекта/файла на основе шаблона:</li>
 						<li class="code">
 							<div>
-								<div><p>Console</p></div>
-								<p>C:\Users\User> dotnet new шаблон Название</p>
+								<div><pre>Console</pre></div>
+								<pre>C:\Users\User> dotnet new шаблон Название</pre>
 							</div>
 						</li>
 						<li>Добавление зависимостей к проекту:</li>
 						<li class="code">
 							<div>
-								<div><p>Console</p></div>
-								<p>C:\Users\User> dotnet add package Название/Ссылка/Путь</p>
+								<div><pre>Console</pre></div>
+								<pre>C:\Users\User> dotnet add package Название/Ссылка/Путь</pre>
 							</div>
 						</li>
 						<li>Востановление зависимстей, указанных в проекте:</li>
 						<li class="code">
 							<div>
-								<div><p>Console</p></div>
-								<p>C:\Users\User> dotnet restore Название/Ссылка/Путь</p>
+								<div><pre>Console</pre></div>
+								<pre>C:\Users\User> dotnet restore Название/Ссылка/Путь</pre>
 							</div>
 						</li>
 						<li>Сборка проекта и его зависимостей:</li>
 						<li class="code">
 							<div>
-								<div><p>Console</p></div>
-								<p>C:\Users\User> dotnet build</p>
+								<div><pre>Console</pre></div>
+								<pre>C:\Users\User> dotnet build</pre>
 							</div>
 						</li>
 						<li>Запуск исходного проекта без явной сборки:</li>
 						<li class="code">
 							<div>
-								<div><p>Console</p></div>
-								<p>C:\Users\User> dotnet run</p>
+								<div><pre>Console</pre></div>
+								<pre>C:\Users\User> dotnet run</pre>
 							</div>
 						</li>
 						<li>Упаковка приложения без развертывания:</li>
 						<li class="code">
 							<div>
-								<div><p>Console</p></div>
-								<p>C:\Users\User> dotnet publish</p>
+								<div><pre>Console</pre></div>
+								<pre>C:\Users\User> dotnet publish</pre>
 							</div>
 						</li>
 						<li>Очистка входных данных сборки (папки bin и obj):</li>
 						<li class="code">
 							<div>
-								<div><p>Console</p></div>
-								<p>C:\Users\User> dotnet clean</p>
+								<div><pre>Console</pre></div>
+								<pre>C:\Users\User> dotnet clean</pre>
 							</div>
 						</li>
 						<li>Запуск тестов:</li>
 						<li class="code">
 							<div>
-								<div><p>Console</p></div>
-								<p>C:\Users\User> dotnet test</p>
+								<div><pre>Console</pre></div>
+								<pre>C:\Users\User> dotnet test</pre>
 							</div>
 						</li>
-						<li>Запуск команды(обычно run или test) и перезапуск при изменении файлов:</li>
+						<li>Запуск команды (обычно run или test) и перезапуск при изменении файлов:</li>
 						<li class="code">
 							<div>
-								<div><p>Console</p></div>
-								<p>C:\Users\User> dotnet watch команда/проект</p>
+								<div><pre>Console</pre></div>
+								<pre>C:\Users\User> dotnet watch команда/проект</pre>
 							</div>
 						</li>
 					</ul>
@@ -285,57 +286,57 @@
 						<li>Определение конфигурации сборки проекта:</li>
 						<li class="code">
 							<div>
-								<div><p>Console</p></div>
-								<p>C:\Users\User> --configuration конфигурация</p>
-								<p>C:\Users\User> -c конфигурация</p>
+								<div><pre>Console</pre></div>
+								<pre>C:\Users\User> --configuration конфигурация</pre>
+								<pre>C:\Users\User> -c конфигурация</pre>
 							</div>
 						</li>
 						<li>Определение директории для размещения выходных файлов:</li>
 						<li class="code">
 							<div>
-								<div><p>Console</p></div>
-								<p>C:\Users\User> --output ИмяПапки</p>
-								<p>C:\Users\User> -o ИмяПапки</p>
+								<div><pre>Console</pre></div>
+								<pre>C:\Users\User> --output ИмяПапки</pre>
+								<pre>C:\Users\User> -o ИмяПапки</pre>
 							</div>
 						</li>
 						<li>Определение целевого фреймворка:</li>
 						<li class="code">
 							<div>
-								<div><p>Console</p></div>
-								<p>C:\Users\User> --framework версия</p>
-								<p>C:\Users\User> -f версия</p>
+								<div><pre>Console</pre></div>
+								<pre>C:\Users\User> --framework версия</pre>
+								<pre>C:\Users\User> -f версия</pre>
 							</div>
 						</li>
 						<li>Уровень детализации логов:</li>
 						<li class="code">
 							<div>
-								<div><p>Console</p></div>
-								<p>C:\Users\User> --verbosity уровень</p>
-								<p>C:\Users\User> -v уровень</p>
+								<div><pre>Console</pre></div>
+								<pre>C:\Users\User> --verbosity уровень</pre>
+								<pre>C:\Users\User> -v уровень</pre>
 							</div>
 						</li>
 						<li>Пропуск этапа восстановления зависимостей при сборке/запуске:</li>
 						<li class="code">
 							<div>
-								<div><p>Console</p></div>
-								<p>C:\Users\User> --no-restore</p>
+								<div><pre>Console</pre></div>
+								<pre>C:\Users\User> --no-restore</pre>
 							</div>
 						</li>
 					</ul>
 					<!-- Виды конфигурации проекта -->
 					<h3>Виды конфигурации проекта:</h3>
 					<ul>
-						<li><strong>Debug(По умолчанию): </strong>версия для разработки</li>
-						<li><strong>Release: </strong>версия для публикации</li>
+						<li><strong>Debug (по умолчанию): </strong>версия для разработки (без оптимизаций, с отладочными данными)</li>
+						<li><strong>Release: </strong>версия для публикации (максимальная оптимизация, без лишних данных)</li>
 					</ul>
 					<!-- Логи -->
-					<h3>Логи</h3>
-					<p><strong>Логи: </strong>структурированные записи о событиях(действия/ошибки/предупреждения) в работе приложения, используемые для отладки и мониторинга</p>
-					<h4>Уровни детализации логов:</h4>
+					<h2>Логи</h2>
+					<p><strong>Логи: </strong>структурированные записи о событиях (действия/ошибки/предупреждения) в работе приложения, используемые для отладки и мониторинга</p>
+					<h3>Уровни детализации логов:</h3>
 					<ul>
-						<li><strong>q/quiet: </strong>только итоговое резюме сборки(успех/провал) и критические ошибки, из-за которых процесс прервался</li>
+						<li><strong>q/quiet: </strong>только итоговое резюме сборки (успех/провал) и критические ошибки, из-за которых процесс прервался</li>
 						<li><strong>m/minimal: </strong>ошибки, предупреждения, сообщения высокой важности и сводку по проекту</li>
-						<li><strong>n/normal(по умолчанию): </strong>список всех обрабатываемых проектов, основные этапы (targets) и статус их выполнения.</li>
+						<li><strong>n/normal (по умолчанию): </strong>список всех обрабатываемых проектов, основные этапы (targets) и статус их выполнения.</li>
 						<li><strong>d/detailed: </strong>подробности выполнения каждой задачи внутри этапов</li>
 						<li><strong>diag/diagnostic: </strong>абсолютно всё, значения всех переменных MSBuild, полные пути, переменные окружения, детальные замеры времени на каждую задачу</li>
 					</ul>
@@ -343,11 +344,189 @@
 			</details>
 		</details>
 
-		<!-- Второй пункт -->
+		<!-- Вторая глава -->
 		<details>
-			<summary>Раздел 2</summary>
+			<summary>2 Основы программирования на C#</summary>
+			<!-- Пункт 1 -->
 			<details>
-				<summary>Подпункт 1.2</summary>
+				<summary>2.1 Структура программы</summary>
+				<div>
+					<h3>Директива подключения (Directives):</h3>
+					<ul>
+						<li><strong>using: </strong>директива, импортирующая внешние файлы</li>
+						<li>Упрощает разрешение имен (Name Resolution), избавляя от необходимости использовать полные уточненные имена (Fully Qualified Names)</li>
+						<li>Подключение объекта:</li>
+						<li class="code">
+							<div>
+								<div><pre>Code</pre></div>
+								<pre>using ИмяОбъекта;</pre>
+							</div>
+						</li>
+					</ul>
+					<h4>Модификаторы using:</h4>
+					<ul>
+						<li><strong>using static: </strong>импортирует статические члены класса</li>
+						<li><strong>global using: </strong>объявляет зависимости на уровне всего проекта</li>
+					</ul>
+					<h3>Пространство имен (namespace):</h3>
+					<ul>
+						<li><strong>namespace: </strong>логический контейнер, используемый для группировки связанных типов (классов, интерфейсов, структур) и предотвращения конфликтов имен</li>
+						<li>Пространства имен могут иметь древовидную структуру</li>
+						<li>Определение пространства имен:</li>
+						<li class="code">
+							<div>
+								<div><pre>Code</pre></div>
+								<pre>namespace ИмяПространстваИмен</pre>
+							</div>
+						</li>
+					</ul>
+					<h3>Объявление типа (Type Declaration):</h3>
+					<ul>
+						<li><strong>Тип: </strong>фундаментальный шаблон определяющий структуру и поведение объекта</li>
+						<li><strong>Члены типа: </strong>включают в себя поля (состояние), методы (поведение), свойства (инкапсулированный доступ), события и конструкторы, место хранения (стек или куча)</li>
+						<li><strong>Модификаторы: </strong>определяют уровень доступа (public, private, internal) и характеристики поведения (static, sealed, abstract)</li>
+						<li>Определение типа:</li>
+						<li class="code">
+							<div>
+								<div><pre>Code</pre></div>
+								<pre>модификаторы тип ИмяТипа</pre>
+								<pre>{                       </pre>
+								<pre>   // Члены типа        </pre>
+								<pre>}                       </pre>
+							</div>
+						</li>
+					</ul>
+					<h3>Точка входа (Entry Point):</h3>
+					<ul>
+						<li><strong>Метод Main: </strong>точка входа, с которого исполняющая среда CLR начинает выполнение потока управления</li>
+						<li><strong>Сигнатура: </strong>должен быть объявлен как static</li>
+						<li><strong>Параметры: </strong>принимает массив строк string[] args, представляющий аргументы командной строки, переданные при запуске процесса</li>
+						<li>Возвращает int (код завершения) или void</li>
+						<li>Поддерживает асинхронность (static async Task)</li>
+						<li>Объявление точки входа:</li>
+						<li class="code">
+							<div>
+								<div><pre>Code</pre></div>
+								<pre>static void Main(string[] args)</pre>
+								<pre>{                              </pre>
+								<pre>   // Инструкции               </pre>
+								<pre>}                              </pre>
+							</div>
+						</li>
+					</ul>
+					<h3>Инструкции и операторы (Statements & Operators):</h3>
+					<ul>
+						<li><strong>Инструкция: </strong>базовая, завершенная команда, выполняющая действие</li>
+						<li><strong>Оператор: </strong>специальный символ или ключевое слово, выполняющее операции над одним или несколькими операндами</li>
+						<li>Каждая инструкция завершается символом <strong>;</strong></li>
+						<li>Группировка инструкций осуществляется с помощью фигурных скобок { }, образуя блок кода (Code Block)</li>
+						<li>Инструкции выполняются последовательно (за исключением управляющих конструкций if, switch, for, while) в контексте стека вызовов текущего потока</li>
+						<li class="code">
+							<div>
+								<div><pre>Code</pre></div>
+								<pre>Инструкция;</pre>
+							</div>
+						</li>
+					</ul>
+					<h3>Комментарии:</h3>
+					<ul>
+						<li>Применяются для пояснения кода, повышения его читаемости и помощи в документировании</li>
+						<li>При компиляции комментарии игнорируются и не оказывают никакого влияние на работу приложения и на его размер</li>
+						<li class="code">
+							<div>
+								<div><pre>Code</pre></div>
+								<pre>//Однострочный комментарий</pre>
+								<pre>/*Многострочный           </pre>
+								<pre>  комментарий*/           </pre>
+							</div>
+						</li>
+					</ul>
+					<h2>Структура проекта:</h2>
+					<h3>Решение (Solution - .sln):</h3>
+					<ul>
+						<li>Объединяет один или несколько связанных проектов</li>
+						<li>Управляет группой проектов как единым целым</li>
+					</ul>
+					<h3>Проект (Project - .csproj): основная единица сборки (проект компилируется в выходной файл: исполняемый файл (.exe) или библиотеку (.dll)):</h3>
+					<ul>
+						<li>Целевая версия платформы</li>
+						<li>Зависимости (NuGet-пакеты и другие библиотеки)</li>
+						<li>Настройки компиляции</li>
+					</ul>
+					<h3>Зависимости (Dependencies): логический раздел для внешних связей:</h3>
+					<ul>
+						<li>Frameworks: базовые библиотеки .NET</li>
+						<li>Packages: сторонние библиотеки, загруженные через менеджер пакетов NuGet</li>
+						<li>Projects: ссылки на другие проекты в рамках того же решения</li>
+					</ul>
+					<h3>Программные файлы (.cs): файлы с исходным кодом:</h3>
+					<ul>
+						<li>Program.cs — файл, содержащий точку входа в приложение</li>
+						<li>Папки(namespace) с классами, интерфейсами и перечислениями</li>
+					</ul>
+					<h3>Физические папки (Служебные):</h3>
+					<ul>
+						<li>obj/: Содержит временные объектные файлы, которые нужны компилятору в процессе сборки</li>
+						<li>bin/: Содержат итоговый результат компиляции (бинарные файлы):</li>
+						<li>
+							<ul>
+								<li>Debug: для разработки</li>
+								<li>Release: оптимизированная версия</li>
+							</ul>
+						</li>
+					</ul>
+					<h3>Иерархия проекта:</h3>
+					<ul>
+						<li class="code">
+							<div>
+								<div><pre>Console</pre></div>
+								<pre>ИмяРешения.sln                  // Решение                      </pre>
+								<pre>│                                                               </pre>
+								<pre>├── ИмяПроекта.App/             // Основной проект (Console App)</pre>
+								<pre>│   ├── ИмяПроекта.App.csproj   // Настройки проекта            </pre>
+								<pre>│   ├── Program.cs              // Точка входа                  </pre>
+								<pre>│   ├── ИмяТипа1.cs             // Файл с описанием класса      </pre>
+								<pre>│   └── ИмяПапки/               // Папка (подпространство имен) </pre>
+								<pre>│       └── ИмяТипа2.cs                                         </pre>
+								<pre>│                                                               </pre>
+								<pre>└── ИмяПроекта.Tests/           // Проект с модульными тестами  </pre>
+								<pre>    ├── ИмяПроекта.Tests.csproj                                 </pre>
+								<pre>    └── UnitTests.cs                                            </pre>
+							</div>
+						</li>
+					</ul>
+					<h3>Настройки проекта по умолчанию:</h3>
+					<ul>
+						<li class="code">
+							<div>
+								<div><pre>Code</pre></div>
+								<pre>&lt;Project Sdk="Microsoft.NET.Sdk"&gt;                                                                                </pre>
+								<pre>	&lt;PropertyGroup&gt;                                    // Определяет свойства проекта                              </pre>
+								<pre>		&lt;OutputType&gt;Exe&lt;/OutputType&gt;               // Определяет выходной тип проекта                        </pre>
+								<pre>		&lt;TargetFramework&gt;net10.0&lt;/TargetFramework&gt; // Определяет применяемую для компиляции версию фреймворка</pre>
+								<pre>		&lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;    // Определяет неявные пространства имен(без using в коде) </pre>
+								<pre>	&lt;Nullable&gt;enable&lt;/Nullable&gt;                        // Определяет ссылочные типы, допускающие значение null</pre>
+								<pre>	&lt;/PropertyGroup&gt;                                                                                              </pre>
+								<pre>&lt;/Project&gt;                                                                                                       </pre>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</details>
+			<details>
+				<summary>2.2 Переменные и константы</summary>
+				<p>Вложенная информация 1.2</p>
+			</details>
+			<details>
+				<summary>2.3 Литералы</summary>
+				<p>Вложенная информация 1.2</p>
+			</details>
+			<details>
+				<summary>2.4 Типы данных</summary>
+				<p>Вложенная информация 1.2</p>
+			</details>
+			<details>
+				<summary>2.5 Консольный ввод-вывод</summary>
 				<p>Вложенная информация 1.2</p>
 			</details>
 		</details>
